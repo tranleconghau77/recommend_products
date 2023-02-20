@@ -6,16 +6,9 @@ import pickle
 
 # Load in appropriate DataFrames, user ratings
 articles_df = pd.read_csv('./articles.csv.zip', index_col='article_id')
-articles_df2 = pd.read_csv('./articles.csv.zip')
 
 # Customer data for collabortive filtering
 df_customer = pd.read_csv('./df_customer.csv', index_col='customer_id')
-
-# Meta data for collabortive filtering
-transactions = pd.read_csv('./out.zip')
-
-# Meta data for content based
-meta_data = pd.read_csv('./out_content.zip')
 
 # Import final collab model
 collab_model = pickle.load(open('./collaborative_model.sav', 'rb'))
@@ -29,6 +22,8 @@ parser.add_argument('n_recs')
 
 
 class Recommend(Resource):
+    def get(self):
+        return "Connect Successfully"
     def post(self):
         args = parser.parse_args()
         customer = args["customer_id"]
