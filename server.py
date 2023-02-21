@@ -25,12 +25,12 @@ class Recommend(Resource):
     def get(self):
         return "Connect Successfully"
     def post(self):
-        args = parser.parse_args()
-        customer = args["customer_id"]
-        n_recs = int(args["n_recs"])
         # customer = "0063faad1cf48d3d6e02d02b3890248173fd59aefe8ecd0c3817b9688ba93124"
         # n_recs = 5
         try:
+            args = parser.parse_args()
+            customer = args["customer_id"]
+            n_recs = int(args["n_recs"])
             have_bought = list(df_customer.loc[customer, 'article_id'])
             not_bought = articles_df.copy()
             # [not_bought.drop(x, inplace=True) for x in have_bought]
