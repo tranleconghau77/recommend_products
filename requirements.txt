@@ -2,5 +2,5 @@ flask==2.2.2
 Flask-RESTful==0.3.9
 pandas
 scikit-surprise
-gunicorn==20.1.0
-waitress
+# gunicorn==20.1.0
+# waitress
